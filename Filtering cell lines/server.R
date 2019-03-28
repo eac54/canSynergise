@@ -7,6 +7,7 @@
 #    http://shiny.rstudio.com/
 #
 
+
 celllines<-read.csv("cansynergise_cellines_mini.csv")
 celllines<-celllines[,-4:-6]
 celllines<-celllines[,-9:-11]
@@ -31,7 +32,13 @@ library(shiny)
 
 library(ggplot2)
 
-function(input, output) {
+function(input, output, session) {
+  
+  updateSelectInput(session,"int", choices=c("All", unique(as.character(celllines$Interaction))))
+  updateSelectInput(session,"cl", choices=c("All", unique(as.character(celllines$Cell.line))))
+  updateSelectInput(session,"dis", choices=c("All", diseases))
+  updateSelectInput(session,"drug", choices=c("All", uniquedrugs))
+  updateSelectInput(session,"target", choices=c("All", targets))
   
   # display 10 rows initially
   output$table <- DT::renderDataTable(DT::datatable({

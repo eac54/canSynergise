@@ -17,36 +17,30 @@ fluidPage(
     fluidRow(
       column(4,
              selectInput("int",
-                         "Interaction:",
-                         c("All",
-                           unique(as.character(celllines$Interaction))))
+                         "Interaction:", c("All"))
       ),
       
-      column(4,
-             selectInput("cl",
-                         "Interaction:",
-                         c("All",
-                           unique(as.character(celllines$Cell.line))))
-      ),
-      
-      column(4,
-             selectInput("dis",
-                         "Disease:",
-                         c("All",
-                           diseases))
-      ),
-      column(4,
-             selectInput("drug",
-                         "Drug:",
-                         c("All",
-                           uniquedrugs))
-      ),
-      column(4,
-             selectInput("target",
-                         "Target uniprot:",
-                         c("All",
-                           targets))
-      ),
+     column(4,
+            selectInput("cl",
+                        "Interaction:",
+                        c("All"))
+     ),
+
+     column(4,
+            selectInput("dis",
+                        "Disease:",
+                        c("All"))
+     ),
+     column(4,
+            selectInput("drug",
+                       "Drug:",
+                       c("All"))
+    ),
+    column(4,
+           selectInput("target",
+                       "Target uniprot:",
+                       c("All"))
+    ),
       
       # Create a new row for the table.
       DT::dataTableOutput("table")
