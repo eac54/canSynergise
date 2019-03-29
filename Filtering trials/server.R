@@ -23,7 +23,16 @@ library(shiny)
 
 library(ggplot2)
 
-function(input, output) {
+function(input, output, session) {
+  
+  
+  updateSelectInput(session,"sou", choices=c("All", unique(as.character(trials$Trial.source))))
+  updateSelectInput(session,"tdis", choices=c("All", trialsdiseases))
+  updateSelectInput(session,"pha", choices=c("All", unique(as.character(trials$Phase))))
+  updateSelectInput(session,"drug", choices=c("All", uniquetrialsdrugs))
+  updateSelectInput(session,"target", choices=c("All", trialstargets))
+  
+  
   
   output$table <- DT::renderDataTable(DT::datatable({
     data <- trials

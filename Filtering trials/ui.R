@@ -7,32 +7,27 @@ fluidPage(
     column(4,
            selectInput("sou",
                        "Trial source:",
-                       c("All",
-                         unique(as.character(trials$Trial.source))))
+                       c("All"))
     ),
     column(4,
            selectInput("tdis",
                        "Disease:",
-                       c("All",
-                         trialsdiseases))
+                       c("All"))
     ),
     column(4,
            selectInput("drug",
                        "Drug:",
-                       c("All",
-                         uniquetrialsdrugs))
+                       c("All"))
     ),
     column(4,
            selectInput("target",
                        "Target uniprot:",
-                       c("All",
-                         trialstargets))
+                       c("All"))
   ),
     column(4,
            selectInput("pha",
                        "Phase:",
-                       c("All",
-                         unique(as.character(trials$Phase))))
+                       c("All"))
     ),
   # Create a new row for the table.
   DT::dataTableOutput("table")
