@@ -58,4 +58,14 @@ function(input, output, session) {
     data
     
   }) )
+  
+  # Downloadable csv of selected dataset ----
+  output$downloadData <- downloadHandler(
+    filename = function() {
+      paste("canSynergise_trials_filtered_results", ".csv", sep = "")
+    },
+    content = function(file) {
+      write.csv(data, file, row.names = FALSE)
+    }
+  )
 }

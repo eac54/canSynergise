@@ -29,6 +29,10 @@ fluidPage(
                        "Phase:",
                        c("All"))
     ),
+  # Button
+  downloadButton("downloadData", "Download"),
+  
+  
   # Create a new row for the table.
   DT::dataTableOutput("table")
 )
