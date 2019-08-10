@@ -22,7 +22,7 @@ fluidPage(
       
      column(4,
             selectInput("cl",
-                        "Interaction:",
+                        "Cell line:",
                         c("All"))
      ),
 
@@ -41,7 +41,9 @@ fluidPage(
                        "Target uniprot:",
                        c("All"))
     ),
-      
+    # Button
+    downloadButton("downloadData", "Download"),
+    
       # Create a new row for the table.
       DT::dataTableOutput("table")
     )
